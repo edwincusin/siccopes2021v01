@@ -50,8 +50,8 @@
     border-left: black solid 2px;
 }
 .imgLogo{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     animation-name: animalogo;
     animation-duration: 5s;
     animation-delay: 1s;
@@ -60,7 +60,7 @@
 
 @keyframes animalogo{
 
-    /* 0%{
+    0%{
         transform: scale(1) rotate(0deg)  translatez(0px) ;
     }
     20%{
@@ -80,10 +80,6 @@
     }   
     100%{
         transform: scale(1) rotate(0deg)  translatez(0px) ;
-    }     */
-    frame{
-        transform: scale(1.) rotate(360deg)  translatez(10px)
-       }
-     
-    
+    }    
+        
 }
