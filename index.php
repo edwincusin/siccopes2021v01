@@ -2,14 +2,14 @@
 <html lang="en">
 
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/estilos.css">
+        <?php
+            include './headLib.html'
+        ?>
         <title>Acceso</title>
     </head>
 
     <body >
+
         <div class="contenedorMain">
 
             <div class="contenedorLogin">
@@ -18,24 +18,29 @@
                     <img src="./img/logoinsideelectronicPNG.png" class="imgLogo" >
                     <a href="">Esfoguar Cia. Ltda.</a>
                 </div>
-                <div class="elementos controles">
-                    <h1 class="animate__animated animate__backInLeft">SICCOPES</h1>
+                <div class="elementos controles animate__animated animate__backInLeft">
+                    <h1>SICCOPES</h1>
                     <h2>Iniciar sesión</h2>
                     <p><img src="./img/icono_login.png" alt="" ></p>            
                     <p> <input type="text" placeholder="&#128100; Ingrese cédula" name="usuario"  maxlength="10">  </p>            
-                    <p> <input type="password" placeholder="&#128274; Ingrese contraseña" name="contraseña"  maxlength="20"> </p>
+                    <p> 
+                        <input type="password" placeholder="&#128274; Ingrese contraseña" name="contraseña"  maxlength="20">
+                        <!-- <i class="fas fa-low-vision"></i> -->
+                    </p>
                     <p>
                         <input type="submit" value="&#128272; Ingresar" >      
                         <input type="submit" value="&#128273 ¿Olvidó su contraseña?" >
-                    </p>
-                </div>
-                
-                
-
-            </div>
-
+                    </p> 
+                </div>                   
+            </div>   
+            <?php
+                include './derechosAutor.html'
+            ?>
         </div>
+        
 
 </body>
 
 </html>
+
+
