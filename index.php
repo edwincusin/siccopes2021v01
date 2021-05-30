@@ -3,13 +3,14 @@
 
     <head>
         <?php
-            include './headLib.html'
+            include './headLib.html';
         ?>
         <title>Acceso</title>
     </head>
 
     <body >
-
+        <form action="validarAccs.php" method="post">
+       
         <div class="contenedorMain">
 
             <div class="contenedorLogin">
@@ -22,21 +23,25 @@
                     <h1>SICCOPES</h1>
                     <h2>Iniciar sesión</h2>
                     <p><img src="./img/icono_login.png" alt="" ></p>            
-                    <p> <input type="text" placeholder="&#128100; Ingrese cédula" name="usuario"  maxlength="10">  </p>            
+                    <p> <input type="text" placeholder="&#128100; Ingrese cédula" name="usuario"  maxlength="10" required>  </p>            
                     <p> 
-                        <input type="password" placeholder="&#128274; Ingrese contraseña" name="contraseña"  maxlength="20">
+                        <input type="password" placeholder="&#128274; Ingrese contraseña" name="pwd"  maxlength="20"  required>
                         <!-- <i class="fas fa-low-vision"></i> -->
                     </p>
+                   
                     <p>
-                        <input type="submit" value="&#128272; Ingresar" >      
+                        <input type="submit" value="&#128272; Ingresar" name="ingresar">      
                         <input type="submit" value="&#128273 ¿Olvidó su contraseña?" >
                     </p> 
                 </div>                   
             </div>   
+            
             <?php
-                include './derechosAutor.html'
+                include './derechosAutor.html';
             ?>
         </div>
+
+        </form>
         
 
 </body>

@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+
         <div class="tituloPaginaLogo">
             <!--logos  -->
             <img src="./img/siccopespng.png">
@@ -44,7 +48,7 @@
 
                     </ul>
                 </li>
-                <li id="item_cuenta" > <a href="#">&#128100; Cuenta</a>
+                <li id="item_cuenta" > <a href="#">&#128100; Cuenta usuario x</a>
                     
                     <ul id="desp_submenu">
                         <li><a href="#">&#128295; Cambiar contraseña</a></li>
