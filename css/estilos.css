@@ -212,6 +212,7 @@ form{
     box-shadow: 0px 0px 62px -3px rgba(214,214,214,1);
     margin-bottom: 50px;
     display: block;
+    padding-bottom: 25px;
 }
 
 /*encabezado logo del aplicativo con empresa*/
@@ -338,7 +339,7 @@ form{
     margin: auto;
     margin-top: 8%;
     margin-bottom: 4%;
-    border: none 2px rgb(7, 7, 7);
+    border: none;
     text-align: center;
 }
 
@@ -376,6 +377,37 @@ img {
 
 /* fin bienvenido*/
 
+
+/*ESTILOS DE CONTROLES FORMULARIOS*/
+
+.tituloForm{
+    border: none;
+    height: 25px;
+    width: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background: transparent;
+    margin-left:5px ;
+    margin-right: 5px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center ;
+    -webkit-box-shadow: 0px 21px 27px -21px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 21px 27px -21px rgba(0,0,0,1);
+    box-shadow: 0px 21px 27px -21px rgba(0,0,0,1);
+
+}
+.tituloPaginaLogo h3{
+    font-weight: bolder;
+    font-size: 40px;
+}
+.contenedorControlesForm {
+    width: 99.7%;
+    margin: auto;
+    margin-top: 8%;
+    margin-bottom: 4%;
+    border: none;
+}
 
 
 

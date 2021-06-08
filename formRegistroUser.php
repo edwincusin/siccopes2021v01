@@ -6,7 +6,7 @@
 
     <head>
         <?php include 'headLib.html';?>
-        <title>Inicio</title>
+        <title>Gestión de usuario</title>
     </head>    
 
     <body>  
@@ -16,19 +16,25 @@
                     <?php           
                         include './encabezadoMenuMain.php';
                     ?>     
-                <!-- fin menu-->
+                <!-- fin menu-->            
 
-                <div id="bienvenido">
+                <!-- INICIO FORMULARIO   -->
+                <div class="tituloForm">
+                    <h3>Usuario</h3>
+                </div>
 
-                    <img src="./img/LogoEsfoguar.png" alt="">
-                    <h1>Evolución en Seguridad y Formación Integral</h1>
-                    <h1>
-                        ¡Bienvenido!
-                    </h1>
-                    <h2> a Siccopes</h2>
-                    <h3> Versión 0.01</h3>
+                <div class="contenedorControlesForm">
+
+
+
+
+
+
+
+
 
                 </div>
+                <!-- INICIO FORMULARIO   -->
             </div>
         </div>
         

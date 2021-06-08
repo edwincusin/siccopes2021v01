@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="./css/estilos.css">
@@ -11,10 +12,10 @@
         <!-- inicio menu-->
         <div id="cont_menu_menu">
             <ul>
-                <li id="item_menu"><a href="./menu_main.php">Inicio</a></li>
+                <li id="item_menu"><a href="./menuInicio.php">Inicio</a></li>
                 <li id="item_menu"><a href="#">Usuario</a>
                     <ul id="desp_submenu">
-                        <li><a href="./usuarios_gestion.php">Gestión </a></li>
+                        <li><a href="./formregistroUser.php">Agregar </a></li>
                     </ul>
                 </li>
                 <li id="item_menu"><a href="#">Personal Operativo</a>
