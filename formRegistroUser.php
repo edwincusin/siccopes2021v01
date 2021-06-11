@@ -10,7 +10,7 @@
     </head>    
 
     <body>  
-        <form action="sqlRegistroUser.php" method="post">
+        <form action="" method="post">
             <div class="contenedorMainInicio">
                 <div class="subcontenedorInicio">
                     <!--menu inicio -->                
@@ -45,15 +45,29 @@
                             
                                 <td> <label for=""><span>Sexo:</span></label> </td>
                                 <td>
-                                    <select name="" id="" name="descSexo" required>
+                                    
+                                        <?php                                            
+                                            require_once ('conex.php');
+                                            $conexion=conectarBD();
+                                            $consulta="SELECT * FROM public.sexo";
+                                            $resultado=pg_query($conexion,$consulta) or die ("error al realizar la consulta en la tabla sexo de la BBD" );
+                                            $numreg=pg_num_rows($resultado);
+                                            
+                                            if($numreg>0){                                           
+
+                                        ?>
+                                        <select name="" id="" name="descripcionSexo" required>
                                         <option disabled selected value="">Seleccionar</option>
+
                                         <?php
-                                        require_once ('sqlRegistroUser.php');
-                                            if($numreg>0){
-                                                while ($fila=pg_fetch_array($resultado)){
-                                                    echo "<option value".$fila[codigo_sexo].">".$fila['descripcion_sexo']."</option>";
-                                                }
+
+                                            while ($row=pg_fetch_array($resultado)){
+                                        ?> 
+                                            <option value="<?php echo $row['codigo_sexo']; ?>"><?php echo $row['descripcion_sexo']; ?></option>
+
+                                        <?php   
                                             }
+                                        }
                                         ?>
                                     </select>
                                 </td>
