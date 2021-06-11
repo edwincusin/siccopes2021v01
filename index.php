@@ -9,7 +9,7 @@
     </head>
 
     <body >
-        <form action="validarAccs.php" method="post">
+        <form action="sqlValidarAccs.php" method="post">
        
         <div class="contenedorMain">
 

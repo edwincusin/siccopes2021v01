@@ -1,6 +1,7 @@
 <?php
- session_start();
+session_start();
 require_once ('conex.php');
+
 if (isset($_POST['ingresar'])){
     
     $conexion=conectarBD();
@@ -11,9 +12,9 @@ if (isset($_POST['ingresar'])){
                 FROM public.usuariosiccopes 
                 WHERE cedula_usr='$user' and contrasena_usr='$pass';";
     $resultado = pg_query($conexion, $consulta) or die ("Error en la consulta de Usuario y contraseña");
-    $nr = pg_num_rows($resultado);//validamos que exista algun registro 
+    $numreg = pg_num_rows($resultado);//validamos que exista algun registro 
     
-    if($nr>0){
+    if($numreg>0){
         $estadoLaboral=0;
         $nombreUsuario="";
         $apellidoUaurio="";

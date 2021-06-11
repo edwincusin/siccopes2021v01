@@ -10,34 +10,121 @@
     </head>    
 
     <body>  
-        <div class="contenedorMainInicio">
-            <div class="subcontenedorInicio">
-                <!--menu inicio -->                
-                    <?php           
-                        include './encabezadoMenuMain.php';
-                    ?>     
-                <!-- fin menu-->            
+        <form action="sqlRegistroUser.php" method="post">
+            <div class="contenedorMainInicio">
+                <div class="subcontenedorInicio">
+                    <!--menu inicio -->                
+                        <?php           
+                            include './encabezadoMenuMain.php';
+                        ?>     
+                    <!-- fin menu-->            
 
-                <!-- INICIO FORMULARIO   -->
-                <div class="tituloForm">
-                    <h3>Usuario</h3>
+                    <!-- INICIO FORMULARIO   -->
+                    <div class="tituloForm">
+                        <h2>Control de usuarios</h2>
+                    </div>
+
+                    <div class="contenedorControlesForm">
+
+                    
+                    <table>
+                        <tr>
+                            <td> <label for=""><span>N° Cédula:</span></label> </td>
+                            <td colspam="2"> <input type="text" size="10" maxlength="10" placeholder="Ingrese cédula" required> </td>
+                            <td> <input type="submit" value="&#128270; Buscar"> </td>
+                        </tr>
+                    </table>
+                
+            
+                    <fieldset  > <legend>Datos usuario</legend>
+
+                        <table>
+                            <tr>
+                                <td> <label for=""><span>N° Cédula:</span></label> </td>
+                                <td> <input type="text" size="10" maxlength="10"  placeholder="Cédula" required> </td>
+                            
+                                <td> <label for=""><span>Sexo:</span></label> </td>
+                                <td>
+                                    <select name="" id="" name="descSexo" required>
+                                        <option disabled selected value="">Seleccionar</option>
+                                        <?php
+                                        require_once ('sqlRegistroUser.php');
+                                            if($numreg>0){
+                                                while ($fila=pg_fetch_array($resultado)){
+                                                    echo "<option value".$fila[codigo_sexo].">".$fila['descripcion_sexo']."</option>";
+                                                }
+                                            }
+                                        ?>
+                                    </select>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> <label for=""><span>Apellido paterno:</span></label> </td>
+                                <td> <input type="text" size="17" maxlength="18" placeholder="Primer apellido" required> </td>
+                                <td> <label for=""><span>Cargo:</span></label> </td>
+                                <td>
+                                    <select name="" id="" required>
+                                        <option disabled selected value="">Seleccionar</option>
+                                    </select>
+                                </td>
+                                
+                            </tr>
+
+                            <tr>
+                                <td> <label for=""><span>Primer nombre:</span></label> </td>
+                                <td> <input type="text" size="17" maxlength="18" placeholder="Primer nombre" required> </td>  
+                                <td> <label for=""><span> Fecha registro:</span></label> </td>
+                                <td> <input type="date" min="1961-12-31" max="2003-12-31"> &emsp;&emsp; </td>
+                            </tr>
+
+                            <tr>
+                                <td> <label for=""><span>Contraseña:</span></label> </td>
+                                <td> <input type="password" size="17" maxlength="18" placeholder="Mínimo 8 digitos" required> </td>  
+                            </tr>
+
+                            <tr>
+                                <td> <label for=""><span>Email @:</span></label> </td>
+                                <td> <input type="text" size="25" maxlength="39" placeholder="ejemplo18@email.com" required> </td>     
+                            </tr>                                                      
+
+                        </table>
+                        
+                            
+                </fieldset>
+
+                <fieldset> <legend>Rol</legend>
+                    <table>
+                        <tr>
+                            <td> <label for=""><span>Estado:</span></label> </td>
+                            <td>
+                                <select name="" id="" required>
+                                    <option disabled selected value="">Seleccionar</option>
+                                </select>
+                                &emsp;&emsp;
+                            </td>       
+                            
+                            <td> <label for=""><span>Tipo de usuario:</span></label> </td>
+                            <td>
+                                <select name="" id="" required>
+                                    <option disabled selected value="">Seleccionar</option>
+                                </select>
+                                &emsp;&emsp;
+                            </td> 
+                                                                
+                        </tr>
+                                    
+                    </table>
+                </fieldset>
+
+                <input type="submit" value="&#10004; Guardar">
+                <input type="submit" value="&#128221; Modificar cambios">   
+
+                    </div>
+                    <!-- INICIO FORMULARIO   -->
                 </div>
-
-                <div class="contenedorControlesForm">
-
-
-
-
-
-
-
-
-
-                </div>
-                <!-- INICIO FORMULARIO   -->
             </div>
-        </div>
-        
+        </form>
         <?php
         include './derechosAutor.html';
         ?>        
