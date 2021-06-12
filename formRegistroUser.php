@@ -6,6 +6,7 @@
 
     <head>
         <?php include 'headLib.html';?>
+        <script type="text/javascript" src="./jsValidarEmail.js"></script>
         <title>Gestión de usuario</title>
     </head>    
 
@@ -99,7 +100,7 @@
 
                             <tr>
                                 <td> <label for=""><span>Email @:</span></label> </td>
-                                <td> <input type="text" size="25" maxlength="39" placeholder="ejemplo18@email.com" required> </td>     
+                                <td> <input type="text" size="25" maxlength="39" placeholder="ejemplo18@email.com" required> </span> </td>     
                             </tr>                                                      
 
                         </table>
