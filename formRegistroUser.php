@@ -48,23 +48,16 @@
                                 <td>
                                     
                                         <?php                                            
-                                            require_once ('conex.php');
-                                            $conexion=conectarBD();
-                                            $consulta="SELECT * FROM public.sexo";
-                                            $resultado=pg_query($conexion,$consulta) or die ("error al realizar la consulta en la tabla sexo de la BBD" );
-                                            $numreg=pg_num_rows($resultado);
-                                            
-                                            if($numreg>0){                                           
-
+                                            require_once ('./sqlcombobox.php'); //* se hace un solo llamado para todo el  documento las consultas de combobox*/                                                                                      
+                                            if($numregsexo>0){                                         
                                         ?>
                                         <select name="" id="" name="descripcionSexo" required>
                                         <option disabled selected value="">Seleccionar</option>
 
                                         <?php
-
-                                            while ($row=pg_fetch_array($resultado)){
+                                            while ($rowsexo=pg_fetch_array($resultadosexo)){
                                         ?> 
-                                            <option value="<?php echo $row['codigo_sexo']; ?>"><?php echo $row['descripcion_sexo']; ?></option>
+                                            <option value="<?php echo $rowsexo['codigo_sexo']; ?>"><?php echo $rowsexo['descripcion_sexo']; ?></option>
 
                                         <?php   
                                             }
@@ -79,8 +72,20 @@
                                 <td> <input type="text" size="17" maxlength="18" placeholder="Primer apellido" required> </td>
                                 <td> <label for=""><span>Cargo:</span></label> </td>
                                 <td>
-                                    <select name="" id="" required>
-                                        <option disabled selected value="">Seleccionar</option>
+                                    <select name="descripcionCargo" id="" required>
+                                    <option disabled selected value="">Seleccionar</option>
+                                        <?php
+                                            if($numregcargo>0){
+                                                while($rowcargo=pg_fetch_array($resultadocargo)){
+
+                                               
+                                        ?>
+                                            <option value="<?php echo $rowcargo['codigo_cargo']; ?>"><?php echo $rowcargo['descripcion_cargo']; ?></option>
+
+                                            <?php 
+                                                }                                              
+                                            }
+                                            ?>
                                     </select>
                                 </td>
                                 
