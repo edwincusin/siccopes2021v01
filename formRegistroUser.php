@@ -6,12 +6,12 @@
 
     <head>
         <?php include 'headLib.html';?>
-        <script type="text/javascript" src="./jsValidarEmail.js"></script>
+        <script type="text/javascript" src="./jsValidarCedulaEcu.js"></script>
         <title>Gestión de usuario</title>
     </head>    
 
     <body>  
-        <form action="" method="post">
+        <form action="sqlRegistroUser" method="post">
             <div class="contenedorMainInicio">
                 <div class="subcontenedorInicio">
                     <!--menu inicio -->                
@@ -31,7 +31,7 @@
                     <table>
                         <tr>
                             <td> <label for=""><span>N° Cédula:</span></label> </td>
-                            <td colspam="2"> <input type="text" size="10" maxlength="10" placeholder="Ingrese cédula" required> </td>
+                            <td colspam="2"> <input type="text" id="validarCedulaEcu" size="10" maxlength="10" placeholder="Ingrese cédula" required> </td>
                             <td> <input type="submit" value="&#128270; Buscar"> </td>
                         </tr>
                     </table>
@@ -46,18 +46,14 @@
                             
                                 <td> <label for=""><span>Sexo:</span></label> </td>
                                 <td>
-                                    
+                                     <select name="" id="" name="descripcionSexo" required>
+                                        <option disabled selected value="">Seleccionar</option>
                                         <?php                                            
                                             require_once ('./sqlcombobox.php'); //* se hace un solo llamado para todo el  documento las consultas de combobox*/                                                                                      
-                                            if($numregsexo>0){                                         
-                                        ?>
-                                        <select name="" id="" name="descripcionSexo" required>
-                                        <option disabled selected value="">Seleccionar</option>
-
-                                        <?php
-                                            while ($rowsexo=pg_fetch_array($resultadosexo)){
+                                            if($numregSexo>0){                                         
+                                            while ($row=pg_fetch_array($resultadoSexo)){
                                         ?> 
-                                            <option value="<?php echo $rowsexo['codigo_sexo']; ?>"><?php echo $rowsexo['descripcion_sexo']; ?></option>
+                                            <option value="<?php echo $row['codigo_sexo']; ?>"><?php echo $row['descripcion_sexo']; ?></option>
 
                                         <?php   
                                             }
@@ -75,12 +71,10 @@
                                     <select name="descripcionCargo" id="" required>
                                     <option disabled selected value="">Seleccionar</option>
                                         <?php
-                                            if($numregcargo>0){
-                                                while($rowcargo=pg_fetch_array($resultadocargo)){
-
-                                               
+                                            if($numregEstadoLab>0){
+                                                while($row=pg_fetch_array($resultadoCargo)){                                               
                                         ?>
-                                            <option value="<?php echo $rowcargo['codigo_cargo']; ?>"><?php echo $rowcargo['descripcion_cargo']; ?></option>
+                                            <option value="<?php echo $row['codigo_cargo']; ?>"><?php echo $row['descripcion_cargo']; ?></option>
 
                                             <?php 
                                                 }                                              
@@ -95,7 +89,7 @@
                                 <td> <label for=""><span>Primer nombre:</span></label> </td>
                                 <td> <input type="text" size="17" maxlength="18" placeholder="Primer nombre" required> </td>  
                                 <td> <label for=""><span> Fecha registro:</span></label> </td>
-                                <td> <input type="date" min="1961-12-31" max="2003-12-31"> &emsp;&emsp; </td>
+                                <td> <input type="date" name="fechaRegistro" disabled value="<?php echo date ("Y-m-d")?>"> &emsp;&emsp; </td>
                             </tr>
 
                             <tr>
@@ -105,12 +99,11 @@
 
                             <tr>
                                 <td> <label for=""><span>Email @:</span></label> </td>
-                                <td> <input type="text" size="25" maxlength="39" placeholder="ejemplo18@email.com" required> </span> </td>     
+                                <td> <input type="text" size="25" id="input_email" maxlength="39" placeholder="ejemplo18@email.com" required> </span> </td>     
                             </tr>                                                      
 
                         </table>
-                        
-                            
+                                                    
                 </fieldset>
 
                 <fieldset> <legend>Rol</legend>
@@ -120,14 +113,36 @@
                             <td>
                                 <select name="" id="" required>
                                     <option disabled selected value="">Seleccionar</option>
+                                    <?php
+                                            if($numregEstadoLab>0){
+                                                while($row=pg_fetch_array($resultadoEstadoLab)){  
+                                        ?>
+                                        <option value="<?php echo $row['codigo_el']; ?>"><?php echo $row['descripcion_el']; ?></option>
+
+                                        <?php 
+                                            }                                              
+                                        }
+                                        ?>                               
+                                
                                 </select>
-                                &emsp;&emsp;
+                                &emsp;&emsp;&emsp;&emsp;
                             </td>       
                             
                             <td> <label for=""><span>Tipo de usuario:</span></label> </td>
                             <td>
                                 <select name="" id="" required>
                                     <option disabled selected value="">Seleccionar</option>
+                                    <?php
+                                            if($numregTipoUsuario>0){
+                                                while($row=pg_fetch_array($resultadoTipoUsuario)){  
+                                        ?>
+                                        <option value="<?php echo $row['codigo_tu']; ?>"><?php echo $row['descripcion_tu']; ?></option>
+
+                                        <?php 
+                                            }                                              
+                                        }
+                                        ?>                               
+                                
                                 </select>
                                 &emsp;&emsp;
                             </td> 
